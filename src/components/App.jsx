@@ -13,6 +13,10 @@ class App extends React.Component {
   };
 
   onLeaveFeedback = el => {
+    if (this.state.contacts.some(({ name }) => name === data.name)) {
+      alert(`${data.name} is already in contacts!`);
+      return;
+    }
     this.setState(prevState => {
       return {
         [el]: prevState[el] + 1,
